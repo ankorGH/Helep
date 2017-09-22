@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<script src="./script/vue.js"></script>
+		<style>
+			#indicator-bg{
+				display: block;
+				width: 300px;
+				text-align: center;
+				border-radius: 8px;
+				border:2px solid #000;
+			}
+			#indicator{
+				display: block;
+				background: #000;
+				padding: 15px 0;
+				color: #fff;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<img src="./pics/two.png" alt="image avatar with spectacles" v-show="!isGuy">
+			<img src="./pics/one.png" alt="image avatar without spectacles" v-show="isGuy">
+			<p>Help me wear my spectacles</p>
+			<span id="indicator-bg">
+				<div id="indicator" v-bind:style="{width: width}">		
+				</div>
+			</span>
+			<div class="text" v-show="trying">{{tryMessages[Math.floor(Math.random() *4)].text}}</div>
+			<div class="text" v-show="succeeded">{{successMessages[Math.floor(Math.random() * 2)].text}}</div>
+			<button type="submit"  @click="helpWearSpectacles(key)">Help Wear</button>
+			<button type="submit"  @click="reset" >Reset</button>
+		</div>
+		<script src="./script/script.js"></script>
+	</body>
+</html>
